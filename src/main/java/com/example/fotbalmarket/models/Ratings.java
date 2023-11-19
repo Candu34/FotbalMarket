@@ -14,7 +14,6 @@ public class Ratings {
 
     @Id
     @OneToOne
-    @Column(name = "player_id")
     private Player player;
     @Column(name = "pace")
     private int pace;

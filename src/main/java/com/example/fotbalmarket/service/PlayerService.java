@@ -31,4 +31,8 @@ public class PlayerService {
     public void deleteById(long id){
         playerRepository.deleteById(id);
     }
+
+    public List<Player> getPlayersByCountry(String country){
+        return playerRepository.getPlayersByCountry(country);
+    }
 }

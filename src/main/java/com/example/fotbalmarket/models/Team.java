@@ -27,7 +27,8 @@ public class Team {
     @Column(name = "championate")
     private String championate;
 
-    @OneToMany(mappedBy = "currentTeam")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+    mappedBy = "currentTeam")
     private List<Player> players;
 
     @Column(name = "manager")

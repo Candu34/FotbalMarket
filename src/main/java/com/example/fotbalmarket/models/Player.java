@@ -33,14 +33,11 @@ public class Player {
     @Column(name = "country", nullable = false)
     private String country;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(name = "currentTeam")
-    @JoinColumn(name = "players")
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     private Team currentTeam;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
-    @JoinColumn(name = "player_id")
     private Ratings rating;
 
     @Column(name = "price")

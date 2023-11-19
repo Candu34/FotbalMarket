@@ -2,37 +2,39 @@
 <html>
 <body>
 
-<h1>Market Place </h1>
+<h1>Zatic Market </h1>
 <hr>
 
 <form action="/" method="get">
-    Search products by name <input type="text" name="title"><br>
+    Search players by name <input type="text" name="country"><br>
     <input type="submit" value="Search!">
 </form>
 
-<#list products as product>
+<#list players as player>
     <div>
-        <p><b>${product.title}</b></p>
-        <p>${product.price} usd.| <a href="/product/${product.id}">Details...</a></p>
+        <p><b>${player.name}</b></p><br/>
+        <p><b>${player.currentTeam.name}</b></p><br/>
+        <p>${player.price} usd.| <a href="/player/${player.id}">Details...</a></p>
     </div>
     <hr>
 <#else >
-    <h3>There is no products added yet!</h3>
+    <h3>There is no players yet!</h3>
 </#list>
 
-<#if user.email??>
-    <h3>Add new product</h3>
+
+    <h3>Add new player</h3>
     <form action="/product/create" method="post" enctype="multipart/form-data">
-        Title of product: <input type="text" name="title"><br><br>
-        Description: <input type="text" name="description"><br><br>
+        Name of player: <input type="text" name="name"><br><br>
+        Age: <input type="number" name="age"><br><br>
         Price: <input type="number" name="price"><br><br>
-        City: <input type="text" name="city"><br><br>
-        Add photo: <input type="file" name="files" multiple><br><br>
-        <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="submit" value="Add product">
+        Position: <input type="text" name="position"><br><br>
+        Country: <input type="text" name="country"><br><br>
+        Position: <input type="text" name="position"><br><br>
+
+<#--        Add photo: <input type="file" name="files" multiple><br><br>-->
+        <input type="submit" value="Add player">
     </form>
 
-</#if>
 
 </body>
 </html>
