@@ -17,7 +17,7 @@ public class Ratings {
     @Column(name = "id")
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "player_id", referencedColumnName = "id")
     private Player player;
 

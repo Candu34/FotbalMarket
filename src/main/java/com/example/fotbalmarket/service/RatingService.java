@@ -17,4 +17,7 @@ public class RatingService {
     public Ratings getRatingByPlayer(Player player){
         return ratingRepository.getRatingsByPlayer(player);
     }
+    public void deleteByPlayerID(Long id){
+        ratingRepository.deleteByPlayerId(id);
+    }
 }

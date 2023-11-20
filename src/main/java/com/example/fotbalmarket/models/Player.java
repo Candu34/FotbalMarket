@@ -36,10 +36,6 @@ public class Player {
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     private Team currentTeam;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
-    private Ratings rating;
-
     @Column(name = "price")
     private int price;
 

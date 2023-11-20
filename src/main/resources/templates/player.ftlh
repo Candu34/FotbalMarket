@@ -52,7 +52,10 @@
             <button type="submit">Submit</button>
         </form>
     </#if>
-
+    <form action="/players/delete/${player.id}" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <button type="submit">Delete Player</button>
+    </form>
 </div>
 
 

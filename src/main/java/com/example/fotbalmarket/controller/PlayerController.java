@@ -5,6 +5,7 @@ import com.example.fotbalmarket.mapper.RatingMapper;
 import com.example.fotbalmarket.models.Player;
 import com.example.fotbalmarket.service.PlayerService;
 import com.example.fotbalmarket.service.RatingService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +47,14 @@ public class PlayerController {
     public String addPlayer(@RequestParam("files") List<MultipartFile> files, Player player) throws IOException {
 
         playerService.saveProduct(player, files);
+        return "redirect:/players";
+    }
+
+    @Transactional
+    @PostMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Long id) {
+        ratingService.deleteByPlayerID(id);
+        playerService.deleteById(id);
         return "redirect:/players";
     }
 }

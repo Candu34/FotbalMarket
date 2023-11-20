@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface RatingRepository extends JpaRepository<Ratings, Long> {
 
     public Ratings getRatingsByPlayer(Player player);
+    public void deleteByPlayerId(Long id);
 }
