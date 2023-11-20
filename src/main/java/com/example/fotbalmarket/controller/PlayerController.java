@@ -46,7 +46,7 @@ public class PlayerController {
     @PostMapping("/create")
     public String addPlayer(@RequestParam("files") List<MultipartFile> files, Player player) throws IOException {
 
-        playerService.saveProduct(player, files);
+        playerService.savePlayer(player, files);
         return "redirect:/players";
     }
 

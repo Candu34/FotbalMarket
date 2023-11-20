@@ -6,14 +6,14 @@
 <hr>
 
 <form action="/" method="get">
-    Search products by name <input type="text" name="name"><br>
+    Search teams by name <input type="text" name="name"><br>
     <input type="submit" value="Search!">
 </form>
 
 <#list teams as team>
     <div>
         <p><b>${team.name}</b></p>
-        <p>${team.country} usd.| <a href="/product/${team.id}">Details...</a></p>
+        <p>${team.championate} <a href="/teams/${team.id}">Details...</a></p>
     </div>
     <hr>
 <#else >
@@ -22,14 +22,15 @@
 
 
     <h3>Add new team</h3>
-    <form action="/product/create" method="post" enctype="multipart/form-data">
-        Title of product: <input type="text" name="title"><br><br>
-        Description: <input type="text" name="description"><br><br>
-        Price: <input type="number" name="price"><br><br>
-        City: <input type="text" name="city"><br><br>
-        Add photo: <input type="file" name="files" multiple><br><br>
-        <input type="submit" value="Add product">
-    </form>
+
+<form action="/teams/create" method="post" enctype="multipart/form-data">
+    Name of the team: <input type="text" name="name"><br><br>
+    Country: <input type="text" name="country"><br><br>
+    Championate: <input type="text" name="championate"><br><br>
+    Manager: <input type="text" name="manager"><br><br>
+    Add photo: <input type="file" name="files" multiple><br><br>
+    <input type="submit" value="Add team">
+</form>
 
 
 

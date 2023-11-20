@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,6 +34,13 @@ public class Team {
 
     @Column(name = "manager")
     private String manager;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            mappedBy = "team")
+    private List<TeamImages> images = new ArrayList<>();
+
+    private Long previewImageId;
+
 
 
 }

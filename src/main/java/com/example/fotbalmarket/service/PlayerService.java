@@ -3,6 +3,7 @@ package com.example.fotbalmarket.service;
 
 import com.example.fotbalmarket.models.Image;
 import com.example.fotbalmarket.models.Player;
+import com.example.fotbalmarket.models.Team;
 import com.example.fotbalmarket.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +21,7 @@ public class PlayerService {
 
     private final PlayerRepository playerRepository;
 
-    public void saveProduct( Player player, List<MultipartFile> files) throws IOException {
+    public void savePlayer( Player player, List<MultipartFile> files) throws IOException {
 
         List<Image> images = new ArrayList<>();
 
@@ -53,6 +54,10 @@ public class PlayerService {
         image.setSize(file.getSize());
         image.setBytes(file.getBytes());
         return image;
+    }
+
+    public List<Player> findPlayersByTeam(Team team){
+        return playerRepository.getPlayersByCurrentTeam(team);
     }
 
 
