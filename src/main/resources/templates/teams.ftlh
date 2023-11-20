@@ -5,15 +5,15 @@
 <h1>Zatic Market</h1>
 <hr>
 
-<form action="/" method="get">
+<form action="/teams" method="get">
     Search teams by name <input type="text" name="name"><br>
     <input type="submit" value="Search!">
 </form>
 
 <#list teams as team>
     <div>
-        <p><b>${team.name}</b></p>
-        <p>${team.championate} <a href="/teams/${team.id}">Details...</a></p>
+        <a style="color: black"   href="/teams/${team.id}"><b>${team.name}</b></a>
+        <p>${team.championate}</p>
     </div>
     <hr>
 <#else >
