@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<h1>Market Place </h1>
+<h1>Zatic Market</h1>
 <hr>
 
 <form action="/" method="get">
