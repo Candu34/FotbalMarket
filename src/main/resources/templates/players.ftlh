@@ -12,9 +12,14 @@
 
 <#list players as player>
     <div>
-        <p><b>${player.name}</b></p><br/>
-        <p><b>${player.currentTeam.name}</b></p><br/>
-        <p>${player.price} usd.| <a href="/player/${player.id}">Details...</a></p>
+        <p><b>${player.name}</b></p>
+        <#if player.currentTeam??>
+        <p><b>${player.currentTeam.name}</b></p>
+            <#else >
+            <p>The player is current without team</p>
+        </#if>
+
+        <p>${player.price} usd.| <a href="/players/${player.id}">Details...</a></p>
     </div>
     <hr>
 <#else >
@@ -23,15 +28,13 @@
 
 
     <h3>Add new player</h3>
-    <form action="/product/create" method="post" enctype="multipart/form-data">
+    <form action="/players/create" method="post" enctype="multipart/form-data">
         Name of player: <input type="text" name="name"><br><br>
         Age: <input type="number" name="age"><br><br>
         Price: <input type="number" name="price"><br><br>
         Position: <input type="text" name="position"><br><br>
         Country: <input type="text" name="country"><br><br>
-        Position: <input type="text" name="position"><br><br>
-
-<#--        Add photo: <input type="file" name="files" multiple><br><br>-->
+        Add photo: <input type="file" name="files" multiple><br><br>
         <input type="submit" value="Add player">
     </form>
 

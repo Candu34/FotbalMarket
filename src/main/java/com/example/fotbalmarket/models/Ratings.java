@@ -13,8 +13,14 @@ import lombok.NoArgsConstructor;
 public class Ratings {
 
     @Id
-    @OneToOne
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "player_id", referencedColumnName = "id")
     private Player player;
+
     @Column(name = "pace")
     private int pace;
     @Column(name = "shooting")

@@ -47,6 +47,8 @@ public class Player {
             mappedBy = "player")
     private List<Image> images = new ArrayList<>();
 
+    private Long previewImageId;
+
 
 
 }
