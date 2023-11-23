@@ -1,10 +1,12 @@
 package com.example.fotbalmarket.controller;
 
 
-import com.example.fotbalmarket.mapper.RatingMapper;
 import com.example.fotbalmarket.models.Player;
+import com.example.fotbalmarket.models.StaticImage;
+import com.example.fotbalmarket.service.ImageService;
 import com.example.fotbalmarket.service.PlayerService;
 import com.example.fotbalmarket.service.RatingService;
+import com.example.fotbalmarket.service.StaticImageService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,8 @@ import java.util.List;
 public class PlayerController {
     private final PlayerService playerService;
     private final RatingService ratingService;
+    private final ImageService imageService;
+    private final StaticImageService staticImageService;
 
 
     @GetMapping()
@@ -31,7 +35,7 @@ public class PlayerController {
         } else {
             model.addAttribute("players", playerService.findAll());
         }
-        return "/players";
+        return "players";
     }
 
     @GetMapping("/{id}")
@@ -56,5 +60,13 @@ public class PlayerController {
         ratingService.deleteByPlayerID(id);
         playerService.deleteById(id);
         return "redirect:/players";
+    }
+
+    @GetMapping("/main")
+    public String main(Model model){
+        model.addAttribute("players", playerService.findAll());
+        model.addAttribute("images", imageService.getPreviewImages());
+        model.addAttribute("unknownImage", staticImageService.findById(1L));
+        return "main";
     }
 }

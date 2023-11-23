@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/javascript/scripts.js"></script>
+</head>
 <body>
+<div id="demo"></div>
+<script src="demo.js"></script>
 
 <h1>Zatic Market </h1>
 <hr>
