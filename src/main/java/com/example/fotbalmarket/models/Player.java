@@ -33,7 +33,7 @@ public class Player {
     @Column(name = "country", nullable = false)
     private String country;
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
     private Team currentTeam;
 
     @Column(name = "price")

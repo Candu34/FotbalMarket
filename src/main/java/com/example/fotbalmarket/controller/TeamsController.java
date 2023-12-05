@@ -31,6 +31,11 @@ public class TeamsController {
         return "/teams";
     }
 
+    @GetMapping("/add")
+    public String addTeam(){
+        return "add_team";
+    }
+
     @GetMapping("/{id}")
     public String team(@PathVariable Long id, Model model) {
         Team team = teamService.findById(id);
@@ -46,6 +51,13 @@ public class TeamsController {
     public String createTeam(@RequestParam("files") List<MultipartFile> files, Team team) throws IOException {
 
         teamService.saveTeam(team, files);
+        return "redirect:/teams";
+    }
+
+    @PostMapping("delete/{id}")
+    public String deleteTeam(@PathVariable long id){
+        teamService.deleteById(id);
+
         return "redirect:/teams";
     }
 }

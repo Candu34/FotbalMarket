@@ -29,7 +29,7 @@ public class RatingController {
 //    }
 
     @PostMapping(value = "rating/create")
-    public String createRating( @RequestParam Map<String, String> formParams) {
+    public String createRating(@RequestParam Map<String, String> formParams) {
         Long playerId = Long.parseLong(formParams.get("playerId"));
         Player player = playerService.findById(playerId);
         Ratings rating = ratingMapper.mapToRating(formParams, player);

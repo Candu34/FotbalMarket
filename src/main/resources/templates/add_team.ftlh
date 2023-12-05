@@ -45,20 +45,19 @@
     </header>
 </div>
 
+<div style="margin-left: 30px; margin-top: 50px">
+<h3>Add new team</h3>
 
-<hr>
-
-<div style="margin-left: 50px">
-    <h3>Add new player</h3>
-    <form action="/players/create" method="post" enctype="multipart/form-data">
-        Name of player: <input type="text" name="name"><br><br>
-        Age: <input type="number" name="age"><br><br>
-        Price: <input type="number" name="price"><br><br>
-        Position: <input type="text" name="position"><br><br>
-        Country: <input type="text" name="country"><br><br>
-        Add photo: <input type="file" name="files" multiple><br><br>
-        <input type="submit" value="Add player">
-    </form>
+<form action="/teams/create" method="post" enctype="multipart/form-data">
+    Name of the team: <input type="text" name="name"><br><br>
+    Country: <input type="text" name="country"><br><br>
+    Championate: <input type="text" name="championate"><br><br>
+    Manager: <input type="text" name="manager"><br><br>
+    Add photo: <input type="file" name="files" multiple><br><br>
+    <input type="submit" value="Add team">
+</form>
 </div>
+
+
 </body>
 </html>
