@@ -34,4 +34,7 @@ public class Ratings {
     @Column(name = "physic")
     private int physic;
 
+    @Column(name = "overall")
+    private float overall;
+
 }

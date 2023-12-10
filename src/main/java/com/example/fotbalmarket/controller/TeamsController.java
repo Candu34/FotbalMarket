@@ -24,9 +24,10 @@ public class TeamsController {
 
 
     @GetMapping()
-    public String teams(@RequestParam(name = "title", required = false) String name,
+    public String teams(@RequestParam(name = "name", required = false) String name,
                         Model model) {
         model.addAttribute("teams", teamService.findAll(name));
+        model.addAttribute("name", name);
 
         return "/teams";
     }

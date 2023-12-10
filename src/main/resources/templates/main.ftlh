@@ -48,17 +48,44 @@
 
 <div class="field container" style="height: 94vh;">
     <div class="row m-0 p-0">
-        <div style="margin-top: 20px; margin-bottom: 30px; margin-left: 30px">
-            <form method="get" action="/players">
-                <div class="form-group col-md-10">
-                    <label for="name">Search player by name</label>
-                    <input type="text" name="name" <#if name??>value="${name}"</#if> class="form-control"
-                           id="name">
-
-                    <button style="width: 100%" type="submit" class="btn btn-dark">Search</button>
+        <p class="d-inline-flex gap-1">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="form-outline" data-mdb-input-init >
+                <form method="get" action="/players">
+                    <div class="form-group col-md-10">
+                        <label class="form-label" for="name">Search team by name</label>
+                        <input type="text" name="name" <#if name??>value="${name}"</#if> class="form-control"
+                               id="name">
+                        <button style="margin-top: 10px" type="submit" class="btn btn-primary" data-mdb-ripple-init>
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <div class="form-outline" data-mdb-input-init>
+                    <form method="get" action="/players/rating">
+                        <label for="overall" class="form-label">Search by overall rating</label>
+                        <input type="range" value="50" name="overall" class="form-range" min="1" max="100" step="1"
+                               id="overall"
+                               oninput="this.nextElementSibling.value = this.value">
+                        <output>50</output>
+                        <button style="margin-top: 10px" type="submit" class="btn btn-primary" data-mdb-ripple-init>
+                            Search
+                        </button>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
+
+
+
 
         <!-- Card -->
         <#list players as player>

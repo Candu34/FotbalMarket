@@ -68,6 +68,7 @@
         <p><b>Price on market:</b> ${player.price}</p>
         <p><b>Ratings:</b></p>
         <hr/>
+        <p><b>Overall:</b> ${rating.overall}</p>
         <p><b>Defence:</b> ${rating.defence}</p>
         <p><b>Dribling:</b> ${rating.dribling}</p>
         <p><b>Pace:</b> ${rating.pace}</p><br/>

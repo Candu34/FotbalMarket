@@ -25,6 +25,13 @@ public class PlayerController {
     private final ImageService imageService;
     private final StaticImageService staticImageService;
 
+    @GetMapping("/rating")
+    public String findByOverall(Model model, @RequestParam(name = "overall", required = false) float overall){
+        model.addAttribute("players", playerService.getPlayerWithRatingOverallGraterThat(overall));
+        model.addAttribute("images", imageService.getPreviewImages());
+
+        return "main";
+    }
     @GetMapping()
     public String main(Model model, @RequestParam(name = "name", required = false) String name){
         model.addAttribute("players", playerService.findAll(name));

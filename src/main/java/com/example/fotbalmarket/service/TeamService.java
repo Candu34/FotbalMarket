@@ -24,7 +24,7 @@ public class TeamService {
 
     public List<Team> findAll(String name){
 
-        if(name != null)
+        if(name != null && !name.isEmpty())
             return teamRepository.findByName(name);
         return teamRepository.findAll();
     }

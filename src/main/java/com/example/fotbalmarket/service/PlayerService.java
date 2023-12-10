@@ -3,10 +3,13 @@ package com.example.fotbalmarket.service;
 
 import com.example.fotbalmarket.models.Image;
 import com.example.fotbalmarket.models.Player;
+import com.example.fotbalmarket.models.Ratings;
 import com.example.fotbalmarket.models.Team;
 import com.example.fotbalmarket.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -81,4 +84,9 @@ public class PlayerService {
     public List<Player> getPlayersByCountry(String country){
         return playerRepository.getPlayersByCountry(country);
     }
+
+    public List<Player> getPlayerWithRatingOverallGraterThat(float overall){
+        return playerRepository.findPlayersByRatingOverallGreaterThan(overall);
+    }
+
 }

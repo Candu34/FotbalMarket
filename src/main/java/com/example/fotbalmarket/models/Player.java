@@ -43,6 +43,9 @@ public class Player {
             mappedBy = "player")
     private List<Image> images = new ArrayList<>();
 
+    @OneToOne(mappedBy = "player")
+    private Ratings rating;
+
     private Long previewImageId;
 
 

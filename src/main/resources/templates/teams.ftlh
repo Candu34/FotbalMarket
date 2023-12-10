@@ -47,7 +47,28 @@
 
 <div class="field container" style="height: 94vh;">
     <div class="row m-0 p-0">
+        <div class="form-outline" data-mdb-input-init>
+            <form method="get" action="/teams">
+                <div class="form-group col-md-10">
+                    <label  class="form-label" for="name">Search team by name</label>
+                    <input type="text" name="name" <#if name??>value="${name}"</#if> class="form-control"
+                           id="name">
+                    <button style="margin-top: 10px" type="submit" class="btn btn-primary" data-mdb-ripple-init>
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
 
+<#--        <div class="input-group">-->
+<#--            <div class="form-outline" data-mdb-input-init>-->
+<#--                <input id="search-focus" type="search" id="form1" class="form-control" />-->
+<#--                <label class="form-label" for="form1">Search</label>-->
+<#--            </div>-->
+<#--            <button type="button" class="btn btn-primary" data-mdb-ripple-init>-->
+<#--                <i class="fas fa-search"></i>-->
+<#--            </button>-->
+<#--        </div>-->
         <!-- Card -->
         <#list teams as team>
             <div class="col-12 col-md-6 my-2">
