@@ -39,13 +39,26 @@
         </ul>
 
         <div class="col-md-3 text-end">
-<#--            <button type="button" class="btn btn-outline-primary me-2">Login</button>-->
-<#--            <button type="button" class="btn btn-primary">Sign-up</button>-->
+            <#--            <button type="button" class="btn btn-outline-primary me-2">Login</button>-->
+            <#--            <button type="button" class="btn btn-primary">Sign-up</button>-->
         </div>
     </header>
+
 </div>
+
 <div class="field container" style="height: 94vh;">
     <div class="row m-0 p-0">
+        <div style="margin-top: 20px; margin-bottom: 30px; margin-left: 30px">
+            <form method="get" action="/players">
+                <div class="form-group col-md-10">
+                    <label for="name">Search player by name</label>
+                    <input type="text" name="name" <#if name??>value="${name}"</#if> class="form-control"
+                           id="name">
+
+                    <button style="width: 100%" type="submit" class="btn btn-dark">Search</button>
+                </div>
+            </form>
+        </div>
 
         <!-- Card -->
         <#list players as player>

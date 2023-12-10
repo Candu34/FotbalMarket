@@ -61,8 +61,13 @@ public class PlayerService {
     }
 
 
-    public List<Player> findAll(){
-        return playerRepository.findAll();
+    public List<Player> findAll(String name){
+        List<Player> players = new ArrayList<>();
+        if(name != null && !name.isEmpty()) {
+            return playerRepository.findAllByName(name);
+        }
+        else
+            return playerRepository.findAll();
     }
 
     public Player findById(long id){

@@ -52,7 +52,7 @@
     <p>Manager: ${team.manager}</p>
     <h4>Players: </h4>
     <#list players as player>
-        <p>${player.name} | ${player.country}</p>
+        <a href="/players/${player.id}" style="margin-bottom: 10px">${player.name} | ${player.country}</a>
         <br>
     <#else >
         <p><i>The team has no players yet</i></p>

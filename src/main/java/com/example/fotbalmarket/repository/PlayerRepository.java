@@ -13,4 +13,7 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     public List<Player> getPlayersByCountry(String country);
     public List<Player> getPlayersByCurrentTeam(Team currentTeam);
+    public Player getPlayersByName(String name);
+
+    public List<Player> findAllByName(String name);
 }

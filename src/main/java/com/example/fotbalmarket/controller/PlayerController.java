@@ -26,10 +26,11 @@ public class PlayerController {
     private final StaticImageService staticImageService;
 
     @GetMapping()
-    public String main(Model model){
-        model.addAttribute("players", playerService.findAll());
+    public String main(Model model, @RequestParam(name = "name", required = false) String name){
+        model.addAttribute("players", playerService.findAll(name));
         model.addAttribute("images", imageService.getPreviewImages());
         model.addAttribute("unknownImage", staticImageService.findById(1L));
+        model.addAttribute("name", name);
         return "main";
     }
 
